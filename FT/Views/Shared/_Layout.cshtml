@@ -1,0 +1,141 @@
+﻿@using System.Data.SqlClient;
+@using FT.Models;
+
+@{
+
+    var menuItems = new List<FT.Models.MenuItemViewModel>();
+
+    using (SqlConnection connection = new SqlConnection(
+             @"Server = DESKTOP-088U1OD\SQLEXPRESS; Trusted_Connection = yes; database = Freshtraditions;"))
+    {
+        connection.Open();
+
+        SqlCommand command = new SqlCommand
+            (
+                "Select ID, Name FROM Designer", connection
+            );
+
+        var reader = command.ExecuteReader();
+
+        while (reader.Read())
+        {
+            var menuItem = new MenuItemViewModel();
+
+            menuItem.ID = (int)reader[0];
+            menuItem.Name = (string)reader[1];
+
+            menuItems.Add(menuItem);
+        };
+    }
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf -8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Fresh Traditions</title>
+    @Scripts.Render("~/bundles/jquery")
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+
+</head>
+<body>
+
+    <div class="designer-dropdown" style="display: none; z-index: 2;">
+        @{
+            for (var i = 0; i < menuItems.Count; i++)
+            {
+                <a href='@string.Format("designer?id={0}", menuItems[i].ID)'>
+                    <div>@menuItems[i].Name</div>
+                </a>
+            }
+        }
+    </div>
+
+    <div class="main">
+        <div class="content">
+
+            <div class="section">
+                <a href="home"><img class="logoPicture" src="~/Content/Images/FTLogo12.jpg" /></a>
+            </div>
+            <hr class="topUnderline" />
+            <div class="section">
+
+                <div class="menu">
+                    <a href="about">
+                        <div>
+                            About
+                        </div>
+                    </a>
+                    <div class="menu-spacer"></div>
+                    <a>
+                        <div class="designer-menu-item">
+                            Designers
+                        </div>
+                    </a>
+                    <div class="menu-spacer"></div>
+                    <a href="gallery">
+                        <div>
+                            Gallery
+                        </div>
+                    </a>
+                    <div class="menu-spacer"></div>
+                    <a href="contact">
+                        <div>
+                            Contact
+                        </div>
+                    </a>
+                </div>
+
+            </div>
+            <hr class="btmUnderline" />
+
+            @RenderBody()
+
+            <hr class="footerUnderline" />
+
+        </div>
+    </div>
+    <div class="footer">
+        <div><a href="mailto:freshtraditions@gmail.com"><strong>Email: </strong>freshtraditions@gmail.com</a></div>
+        <div><strong>Address:</strong> 995 University Ave W, Studio 220, St Paul, MN 55104</div>
+        <div><a href="mailto:johndanielball86@gmail.com"><strong>Web Master: </strong>Juan Ball</a></div>
+        <div><strong>&copy</strong>Fresh Traditions 2017</div>
+    </div>
+
+    @Scripts.Render("~/bundles/jquery")
+    @*@Scripts.Render("~/bundles/bootstrap")*@
+    @RenderSection("scripts", required: false)
+
+    <script>
+        $(document).ready(function () {
+            $(".designer-dropdown").hide();
+
+            $(".designer-menu-item").on("click", function (event) {
+                var position = $(event.target).position();
+
+                $('.designer-dropdown').css({
+                    position: "absolute",
+                    marginLeft: 0, marginTop: 0,
+                    top: position.top + $(event.target).height(), left: position.left
+                });
+
+                $('.designer-dropdown')[0].style.display = '';
+            })
+
+            $(".designer-dropdown").on("mouseleave", function (event) {
+                $('.designer-dropdown')[0].style.display = 'none';
+            })
+
+            $("body").on("click", function (event) {
+                if ($(".designer-menu-item")[0] != event.target) {
+                    $('.designer-dropdown')[0].style.display = 'none';
+            }
+            })
+        });
+    </script>
+
+</body>
+</html>
