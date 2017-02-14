@@ -371,6 +371,7 @@
     <Content Include="Scripts\external\bootstrap.js" />
     <Content Include="Scripts\external\bootstrap.min.js" />
     <Content Include="fonts\Carpenter Script.ttf" />
+    <None Include="Properties\PublishProfiles\Fresh Traditions.pubxml" />
     <None Include="Scripts\external\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\external\jquery-1.10.2.js" />
     <Content Include="Scripts\external\jquery-1.10.2.min.js" />

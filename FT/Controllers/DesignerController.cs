@@ -5,6 +5,7 @@ using System.Data.SqlClient;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using System.Configuration;
 
 namespace FT.Controllers
 {
@@ -12,9 +13,8 @@ namespace FT.Controllers
     {
         public ActionResult Index(int id)
         {
-            //var conn = new SqlConnection(@"Server = DESKTOP-088U1OD\SQLEXPRESS; Database = Freshtraditons; Trusted_Connection = True;");
-            using (SqlConnection connection = new SqlConnection(
-                           @"Server = DESKTOP-088U1OD\SQLEXPRESS; Trusted_Connection = yes; database = Freshtraditions;"))
+            
+            using (SqlConnection connection = new SqlConnection(ConfigurationManager.ConnectionStrings["FreshTraditionsConnection"].ConnectionString))
             {
                 connection.Open();
 

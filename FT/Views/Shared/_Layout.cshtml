@@ -1,33 +1,33 @@
 ﻿@using System.Data.SqlClient;
 @using FT.Models;
+@using System.Configuration;
 
 @{
 
-    var menuItems = new List<FT.Models.MenuItemViewModel>();
+                var menuItems = new List<FT.Models.MenuItemViewModel>();
 
-    using (SqlConnection connection = new SqlConnection(
-             @"Server = DESKTOP-088U1OD\SQLEXPRESS; Trusted_Connection = yes; database = Freshtraditions;"))
-    {
-        connection.Open();
+                using (SqlConnection connection = new SqlConnection(ConfigurationManager.ConnectionStrings["FreshTraditionsConnection"].ConnectionString))
+                {
+                    connection.Open();
 
-        SqlCommand command = new SqlCommand
-            (
-                "Select ID, Name FROM Designer", connection
-            );
+                    SqlCommand command = new SqlCommand
+                        (
+                            "Select ID, Name FROM Designer", connection
+                        );
 
-        var reader = command.ExecuteReader();
+                    var reader = command.ExecuteReader();
 
-        while (reader.Read())
-        {
-            var menuItem = new MenuItemViewModel();
+                    while (reader.Read())
+                    {
+                        var menuItem = new MenuItemViewModel();
 
-            menuItem.ID = (int)reader[0];
-            menuItem.Name = (string)reader[1];
+                        menuItem.ID = (int)reader[0];
+                        menuItem.Name = (string)reader[1];
 
-            menuItems.Add(menuItem);
-        };
-    }
-}
+                        menuItems.Add(menuItem);
+                    };
+                }
+            }
 
 <!DOCTYPE html>
 <html>
@@ -51,7 +51,7 @@
                     <div>@menuItems[i].Name</div>
                 </a>
             }
-        }
+    }
     </div>
 
     <div class="main">
