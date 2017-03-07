@@ -79,6 +79,11 @@ contacts-links {
     font-weight: bolder;
 }
 
+.designer-portfolio-container {
+    display: flex;
+    flex-direction: row;
+}
+
 .picMenus {
     display: flex;
     justify-content: space-between;
@@ -184,12 +189,20 @@ contacts-links {
 }
 
 
-.section {
-    margin-bottom: 10px;
+.section-menu {
+    margin-top: 50px;
 }
 
-.section.portrait {
+.section-home{
+    margin-top: 25px;
+}
+
+.section-portrait {
     margin-bottom: 25px;
+}
+
+.section-designer {
+    margin-top: 75px;
 }
 
 .topUnderline {
@@ -205,7 +218,6 @@ contacts-links {
     background-color: black;
     border: none;
     margin-top: -2px;
-    margin-bottom: 30px;
 }
 
 .footerUnderline {
@@ -213,7 +225,7 @@ contacts-links {
     width: 100%;
     background-color: grey;
     border: none;
-    margin-top: 25px;
+    margin-top: 75px;
 }
 
 a {
@@ -269,12 +281,13 @@ a {
 }
 
 .designer-bio-text {
-    background-color: salmon;
     margin-top: -165px;
-    padding-top: 165px;
+    padding-top: 90px;
     display: flex;
     flex-direction: row;
-    background-image: url('../Images/biophoto.jpg');
+    border-style: solid;
+    font-weight: 600;
+    /*background-image: url('../Images/biophoto.jpg');*/
 }
 
 .designer-bio-text > div {
@@ -292,36 +305,28 @@ a {
 .designer-main-design-container {
     display: flex;
     flex-direction: row;
+    margin-right: 180px;
+}
+
+.section.designer-main-design-container {
+    margin-top: 40px;
+    margin-bottom: 40px;
 }
 
 .designer-designs-container {
     position: relative;
+    border-style: solid;
+    border-color: lightsteelblue;
 }
 
 .designer-designs-container > img {
     width: 100%;
 }
 
-.section.designer-main-design-container {
-    margin-top:40px;
-    margin-bottom: 40px;
-}
-
-
 .main-design-info {
     align-self: center;
-    height: 175px;
-    border: 4px solid salmon;
-    margin-left: -110px;
-}
-
-.main-design-info > p {
-    padding-top: 40px;
-    padding-left: 30px;
-    padding-right: 32px;
-    font-size: 30px;
-    color: hotpink;
-    white-space: pre;
+    font-size: 60px;
+    color: black;
     font-weight: bolder;
 }
 

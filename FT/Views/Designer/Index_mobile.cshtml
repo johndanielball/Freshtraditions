@@ -35,22 +35,22 @@
         </div>
     </div>
 
-    <div class="section-designer designer-portfolio-container">
-        <div class="designer-main-design-container">
-            <div class="main-design-info">
-                @Model.Description
-            </div>
-        </div>
+    <div class="section designer-main-design-container">
+        <img class="main-design-photo" src="@Url.Content("~/Content/Images/MainDesignPhotos/" + Model.MainDesign + ".jpg")" />
 
-        <div class="designer-designs-container">
-            @for (var i = 0; i < Model.Designs.Count; i++)
-            {
-                <img class="mySlides" src="@Url.Content(System.IO.Path.Combine("~/Content/Images/DesignerDesigns", Model.ImageFolderName,  Model.Designs[i] + ".jpg"))" />
-            }
-
-            <a class="btn-floating btn-display-left" onclick="plusDivs(-1)">&#10094;</a>
-            <a class="btn-floating btn-display-right" onclick="plusDivs(1)">&#10095;</a>
+        <div class="main-design-info">
+            <p>@Model.Description</p>
         </div>
+    </div>
+
+    <div class="designer-designs-container">
+       @for (var i = 0; i < Model.Designs.Count; i++)
+       {
+        <img class="mySlides" src="@Url.Content(System.IO.Path.Combine("~/Content/Images/DesignerDesigns", Model.ImageFolderName,  Model.Designs[i] + ".jpg"))" />
+       }
+
+        <a class="btn-floating btn-display-left" onclick="plusDivs(-1)">&#10094;</a>
+        <a class="btn-floating btn-display-right" onclick="plusDivs(1)">&#10095;</a>
     </div>
 
     <script>

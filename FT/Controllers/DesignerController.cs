@@ -19,9 +19,13 @@ namespace FT.Controllers
                 connection.Open();
 
                 SqlCommand command = new SqlCommand
-                    ("Select * FROM Designer WHERE ID = " + id +
+                    ("SELECT * FROM Designer WHERE ID = " + id +
+
                     " SELECT * FROM Bio WHERE Designer_ID = " + id + " ORDER BY [Order] ASC" +
-                    " SELECT Name FROM Design WHERE Designer_ID = " + id + " AND Main = 0" +
+
+                    " SELECT d.Name FROM Design d INNER JOIN DesignOrder do ON d.ID = do.Design_ID INNER JOIN Designer dsr " +
+                    "ON d.Designer_ID = dsr.ID WHERE dsr.ID = " + id + " ORDER BY dsr.ID, do.[Order]" +
+
                     " SELECT Name, Description FROM Design WHERE Designer_ID = " + id + " AND Main = 1", connection);
 
                 SqlDataReader reader = command.ExecuteReader();
