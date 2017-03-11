@@ -379,6 +379,11 @@
     <Content Include="Content\Styles\bootstrap.css" />
     <Content Include="Content\Styles\bootstrap.min.css" />
     <Content Include="Content\Styles\hover-min.css" />
+    <Content Include="Content\Styles\about.css" />
+    <Content Include="Content\Styles\contact.css" />
+    <Content Include="Content\Styles\designer.css" />
+    <Content Include="Content\Styles\gallery.css" />
+    <Content Include="Content\Styles\home.css" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />

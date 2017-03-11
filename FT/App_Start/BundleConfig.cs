@@ -22,7 +22,12 @@ namespace FT
 
             bundles.Add(new StyleBundle("~/Content/css").Include(
                       "~/Content/Styles/hover-min.cs",
-                      "~/Content/Styles/Site.css"));
+                      "~/Content/Styles/Site.css",
+                      "~/Content/Styles/about.css",
+                      "~/Content/Styles/contact.css",
+                      "~/Content/Styles/designer.css",
+                      "~/Content/Styles/gallery.css",
+                      "~/Content/Styles/home.css"));
         }
     }
 }
