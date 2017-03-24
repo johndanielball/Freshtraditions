@@ -4,30 +4,30 @@
 
 @{
 
-                var menuItems = new List<FT.Models.MenuItemViewModel>();
+    var menuItems = new List<FT.Models.MenuItemViewModel>();
 
-                using (SqlConnection connection = new SqlConnection(ConfigurationManager.ConnectionStrings["FreshTraditionsConnection"].ConnectionString))
-                {
-                    connection.Open();
+    using (SqlConnection connection = new SqlConnection(ConfigurationManager.ConnectionStrings["FreshTraditionsConnection"].ConnectionString))
+    {
+        connection.Open();
 
-                    SqlCommand command = new SqlCommand
-                        (
-                            "Select ID, Name FROM Designer", connection
-                        );
+        SqlCommand command = new SqlCommand
+            (
+                "Select ID, Name FROM Designer", connection
+            );
 
-                    var reader = command.ExecuteReader();
+        var reader = command.ExecuteReader();
 
-                    while (reader.Read())
-                    {
-                        var menuItem = new MenuItemViewModel();
+        while (reader.Read())
+        {
+            var menuItem = new MenuItemViewModel();
 
-                        menuItem.ID = (int)reader[0];
-                        menuItem.Name = (string)reader[1];
+            menuItem.ID = (int)reader[0];
+            menuItem.Name = (string)reader[1];
 
-                        menuItems.Add(menuItem);
-                    };
-                }
-            }
+            menuItems.Add(menuItem);
+        };
+    }
+}
 
 <!DOCTYPE html>
 <html>
@@ -42,7 +42,6 @@
 
 </head>
 <body>
-
     <div class="designer-dropdown" style="display: none; z-index: 2;">
         @{
             for (var i = 0; i < menuItems.Count; i++)
@@ -51,44 +50,45 @@
                     <div>@menuItems[i].Name</div>
                 </a>
             }
-    }
+        }
     </div>
 
     <div class="main">
         <div class="content">
-
-            <div class="section-menu">
+            <div class="section-logo">
                 <a href="home"><img class="logoPicture" src="~/Content/Images/FTLogo12.jpg" /></a>
             </div>
             <hr class="topUnderline" />
-            <div class="section-menu">
+            <div class="mobile">
+                <div class="section-menu">
 
-                <div class="menu">
-                    <a href="about">
-                        <div>
-                            About
-                        </div>
-                    </a>
-                    <div class="menu-spacer"></div>
-                    <a>
-                        <div class="designer-menu-item">
-                            Designers
-                        </div>
-                    </a>
-                    <div class="menu-spacer"></div>
-                    <a href="gallery">
-                        <div>
-                            Gallery
-                        </div>
-                    </a>
-                    <div class="menu-spacer"></div>
-                    <a href="contact">
-                        <div>
-                            Contact
-                        </div>
-                    </a>
+                    <div class="menu">
+                        <a href="about">
+                            <div>
+                                About
+                            </div>
+                        </a>
+                        <div class="menu-spacer"></div>
+                        <a>
+                            <div class="designer-menu-item">
+                                Designers
+                            </div>
+                        </a>
+                        <div class="menu-spacer"></div>
+                        <a href="gallery">
+                            <div>
+                                Gallery
+                            </div>
+                        </a>
+                        <div class="menu-spacer"></div>
+                        <a href="contact">
+                            <div>
+                                Contact
+                            </div>
+                        </a>
+                    </div>
+
                 </div>
-
             </div>
             <hr class="btmUnderline" />
 
@@ -99,10 +99,18 @@
         </div>
     </div>
     <div class="footer">
-        <div><a href="mailto:freshtraditions@gmail.com"><strong>Email: </strong>freshtraditions@gmail.com</a></div>
-        <div><strong>Address:</strong> 995 University Ave W, Studio 220, St Paul, MN 55104</div>
-        <div><a href="mailto:johndanielball86@gmail.com"><strong>Web Master: </strong>Juan Ball</a></div>
-        <div><strong>&copy</strong>Fresh Traditions 2017</div>
+        <div>
+            <a href="mailto:freshtraditions@gmail.com"><strong>Email: </strong>freshtraditions@gmail.com</a>
+        </div>
+        <div>
+            <strong>Address:</strong> 995 University Ave W, Studio 220, St Paul, MN 55104
+        </div>
+        <div>
+            <a href="mailto:johndanielball86@gmail.com"><strong>Web Master: </strong>Juan Ball</a>
+        </div>
+        <div>
+            <strong>&copy</strong>Fresh Traditions 2017
+        </div>
     </div>
 
     @Scripts.Render("~/bundles/jquery")
@@ -132,7 +140,7 @@
             $("body").on("click", function (event) {
                 if ($(".designer-menu-item")[0] != event.target) {
                     $('.designer-dropdown')[0].style.display = 'none';
-            }
+                }
             })
         });
     </script>

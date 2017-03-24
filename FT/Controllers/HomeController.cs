@@ -11,11 +11,11 @@ namespace FT.Controllers
     {
         public ActionResult Index ()
         {
-            return View();
-        }
+            if (bool.Parse(Request.Browser["IsMobile"]))
+            {
+                return View("Index_m");
+            }
 
-        public ActionResult Monkey()
-        {
             return View();
         }
     }

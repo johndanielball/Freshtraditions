@@ -8,9 +8,12 @@ namespace FT.Controllers
 {
     public class AboutController : Controller
     {
-
         public ActionResult Index ()
         {
+            if (bool.Parse(Request.Browser["IsMobile"]))
+            {
+                return View("Index_m");
+            }
             return View();
         }
     }

@@ -63,6 +63,11 @@ namespace FT.Controllers
 
                 designerModel.Description = reader[1].ToString();
 
+                if (bool.Parse(Request.Browser["IsMobile"]))
+                {
+                    return View("Index_m", designerModel);
+                }
+
                 return View(designerModel);
             }
         }

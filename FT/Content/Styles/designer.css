@@ -1,2 +1,205 @@
-﻿body {
+﻿.designer-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.designer-bio-container {
+
+}
+
+.designer-bio-profile {
+
+}
+
+.designer-headshot {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    justify-content: center;
+    width: 100%;
+    margin-top: 30px;
+    position: relative;
+}
+
+.designerImg {
+
+}
+
+.designer-header-cursive {
+    font-family: "Carpenter Script";
+    font-style: italic;
+    font-size: 50px;
+    text-transform: capitalize;
+    transform: scale(3.5,2.5) translate(0%,-50%);
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+    opacity: .25;
+    position: absolute;
+    top: 50%;
+    z-index: 1;
+    margin-top: 160px;
+    width: 100%;
+}
+
+.designer-header {
+    display: flex;
+    justify-content: space-between;
+    justify-content: center;
+    width: 100%;
+    font-weight: 900;
+    color: white;
+    font-size: 40px;
+    text-transform: uppercase;
+}
+
+.designer-bio-text {
+    margin-top: -165px;
+    padding-top: 90px;
+    display: flex;
+    flex-direction: row;
+    border-style: solid;
+    font-weight: 600;
+    /*background-image: url('../Images/biophoto.jpg');*/
+}
+
+.designer-bio-text > div {
+    width: 45%;
+}
+
+.designer-bio-text > div:first-child > p {
+    padding-left: 60px;
+}
+
+.designer-bio-text > div:last-child > p {
+   padding-left: 80px;
+}
+
+.section-designer {
+    margin-top: 75px;
+}
+
+.designer-portfolio-container {
+    display: flex;
+    flex-direction: row;
+}
+
+.designer-main-design-container {
+    display: flex;
+    flex-direction: row;
+    margin-right: 180px;
+}
+
+.section.designer-main-design-container {
+    margin-top: 40px;
+    margin-bottom: 40px;
+}
+
+.main-design-info {
+    align-self: center;
+    font-size: 60px;
+    color: black;
+    font-weight: bolder;
+}
+
+.designer-designs-container {
+    position: relative;
+}
+
+.designer-designs-container > img {
+    width: 100%;
+}
+
+.btn-floating {
+    width: 40px;
+    height: 40px;
+    line-height: 40px;
+    display: inline-block;
+    text-align: center;
+    color: #fff;
+    overflow: hidden;
+    z-index: 1;
+    padding: 0;
+    border-radius: 50%;
+    cursor: pointer;
+    font-size: 24px;
+    transition: background-color .3s,color .15s,box-shadow .3s,opacity 0.3s,filter 0.3s;
+}
+
+.btn-display-right {
+    position: absolute;
+    top: 50%;
+    right: 0%;
+    transform: translate(0%,-50%);
+}
+
+.btn-display-left {
+    position: absolute;
+    top: 50%;
+    left: 0%;
+    transform: translate(0%,-50%);
+}
+
+/* --- MOBILE --- */
+
+.mobile .designer-bio-text {
+    margin-top: -165px;
+    padding-top: 90px;
+    display: flex;
+    flex-direction: column;
+    border-style: solid;
+    font-weight: 600;
+}
+
+.mobile .designer-bio-text > div {
+    width: 100%;
+}
+
+.mobile .designer-bio-text > div:first-child > p {
+    padding-left: initial;
+}
+
+.mobile .designer-bio-text > div:last-child > p {
+   padding-left: initial;
+}
+
+.mobile .designer-bio-text {
+    padding: 100px 15px 0px 15px;
+}
+
+.mobile .main-design-info {
+    align-self: center;
+    font-size: 60px;
+    color: black;
+    font-weight: bolder;
+    width: 100%;
+    text-align: center;
+}
+
+.mobile .designer-main-design-container {
+    display: initial;
+    margin-right: initial;
+}
+
+.mobile .designer-portfolio-container {
+    display: flex;
+    flex-direction: column;
+}
+
+.mobile .designer-header-cursive {
+    font-family: "Carpenter Script";
+    font-style: italic;
+    font-size: 13vw;
+    text-transform: capitalize;
+    transform: translate(0%,-30%);
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+    opacity: .25;
+    position: absolute;
+    top: 50%;
+    z-index: 1;
+    margin-top: 160px;
+    white-space: nowrap;
 }
